@@ -4,17 +4,30 @@
 #include"searchAlgos.h"
 
 
-int main()
+void demoSearchingThrough2DStringArray()
 {
 	auto myRoomContents = initializeMyRoomContents();
 
-	print2DArray(myRoomContents); 
+	print2DArray(myRoomContents);
 
-	string thing_to_search_for = "Backpack";
+	string thing_to_search_for = "Bed";
 
 	cout << thing_to_search_for << " was? found at row  = "
 		<< search(myRoomContents, thing_to_search_for).first
 		<< "and column = "
 		<< search(myRoomContents, thing_to_search_for).second << "\n";
+}
+
+
+
+int main()
+{
+	//cout << RAND_MAX << "\n"; //a limitiation of rand() (a C function)
+
+	//cout << "Time(nullptr) yields: " << time(nullptr) << "\n";
+
+	auto oneThousandRandomNums = generateRandomNumbersBetwixt0AndN(1000);
+
+	printOneDVector(oneThousandRandomNums); 
 }
 

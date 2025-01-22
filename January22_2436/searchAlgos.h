@@ -3,10 +3,22 @@
 #include <iostream>
 
 #include<array> //static array 
-//
-//#include<pair>
 
-using std::array, std::cout, std::string, std::pair;
+
+#include"random"
+
+
+using std::mt19937; //this is a prime number and MT means "Mersenne Twister" 
+using std::uniform_int_distribution;
+
+
+
+using std::array, std::cout, std::string, std::pair, std::vector;
+
+
+vector<int> generateRandomNumbersBetwixt0AndN(int N);
+
+void printOneDVector(const vector<int>& oneDVector);
 
 array<array<string, 4>, 4> initializeMyRoomContents(); //function declaration here (def. will be in the cpp file)
 
@@ -22,3 +34,4 @@ array<array<string, 4>, 4> initializeMyRoomContents(); //function declaration he
 void print2DArray(array<array<string, 4>, 4> twoDArray);
 
 pair<int, int> search(array<array<string, 4>, 4>, const string& thingWeSearchFor);
+
