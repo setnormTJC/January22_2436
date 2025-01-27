@@ -35,3 +35,21 @@ void print2DArray(array<array<string, 4>, 4> twoDArray);
 
 pair<int, int> search(array<array<string, 4>, 4>, const string& thingWeSearchFor);
 
+
+/*
+@return false if valueToSearchFor is not found and true otherwise
+*/
+template<typename T>
+bool sequentialSearch(const vector<T>& list, T valueToSearchFor)
+{
+	for (const auto& listElement : list) //range-based for loop 
+	{
+		if (listElement == valueToSearchFor)
+		{
+			return true; 
+		}
+	}
+
+	//not found: 
+	return false; 
+}

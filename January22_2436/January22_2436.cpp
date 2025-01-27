@@ -3,6 +3,11 @@
 //
 #include"searchAlgos.h"
 #include<chrono>
+#include<fstream>
+
+//#include<filesystem>
+
+using std::ofstream; 
 
 void demoSearchingThrough2DStringArray()
 {
@@ -36,33 +41,64 @@ void demoMeasuringExecutionTime()
 	cout << "It took this much time: " << (end - start).count() << "\n";
 }
 
+/*CSV stands for "comma-separated values/variables"*/
+void demoWritingToACSVFile()
+{
+	ofstream fout{ "out.csv" };
+
+	fout << 1 << "," << 3 << "\n";
+	fout << 2 << "," << 6 << "\n";
+	fout << 3 << "," << 9 << "\n";
+	fout << 4 << "," << 12 << "\n";
+	fout << 5 << "," << 15 << "\n";
+
+
+	//cout 
+	fout.close(); 
+}
+
+//void callSequentialSearchOnNElement
+
+void demoSequentialSearchOnNElements(const int N)
+{
+	//constexpr int N1 = 100;
+	//const? 
+	//constexpr int N2 = 10'000;
+	auto NRandomNumbers = generateRandomNumbersBetwixt0AndN(N);
+	//auto tenThousandRandomNums = generateRandomNumbersBetwixt0AndN(N2); 
+
+	std::random_device rd{}; //better alternative to passing in time(nullptr) to rng
+	mt19937 rng(rd);
+	uniform_int_distribution<int> distribution{ 0, N };
+
+	int theRandomNumber = distribution(rng);
+	cout << "Looking for this random number: " << theRandomNumber << "\n";
+
+	std::cin.get();
+	printOneDVector(NRandomNumbers);
+
+	if (sequentialSearch(NRandomNumbers, theRandomNumber))
+	{
+		cout << "it was found\n";
+	}
+
+	else
+	{
+		cout << "Not found\n";
+	}
+
+	std::cin.get(); 
+}
 
 int main()
 {
-
-	demoMeasuringExecutionTime(); 
-
-	std::cin.get();//similar to system("pause")
-
-
-	//cout << RAND_MAX << "\n"; //a limitiation of rand() (a C function)
-
-	//cout << "Time(nullptr) yields: " << time(nullptr) << "\n";
-
-
-	constexpr int N1 = 1'000; 
-	//const? 
-	constexpr int N2 = 10'000;
-	auto oneThousandRandomNums = generateRandomNumbersBetwixt0AndN(N1);
-	//auto tenThousandRandomNums = generateRandomNumbersBetwixt0AndN(N2); 
+	demoSequentialSearchOnNElements(10); 
+	demoSequentialSearchOnNElements(100);
+	demoSequentialSearchOnNElements(1'000);
 
 
 
 	//search(oneThousandRandomNums, someNumberBetween0AndOneThousand);
-
-
-	printOneDVector(oneThousandRandomNums); 
-
 
 }
 
