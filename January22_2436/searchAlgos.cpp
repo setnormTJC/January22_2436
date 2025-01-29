@@ -194,6 +194,15 @@ bool recursiveBinarySearch(vector<int> SORTEDnums, int targetNumber, int startIn
 
 	if (startIndex > endIndex)
 	{
+		cout << targetNumber << " was NOT!! found in the array: \n";
+		printOneDVector(SORTEDnums);
+		cout << "\nAnd the number of recursive calls ended up being = ";
+		
+		//make the counter RED text so it stands out: 
+		cout << "\033[31m " << counter << "\n";
+		//reset terminal text color to default 
+		cout << "\033[0m";
+
 		return false; //means `targetNumber` is not in `nums`
 	}
 	
