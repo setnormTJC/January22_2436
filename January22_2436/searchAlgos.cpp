@@ -1,4 +1,5 @@
 #include"searchAlgos.h"
+#include <cassert>
 
 vector<int> generateRandomNumbersBetwixt0AndN(int N)
 {
@@ -182,4 +183,42 @@ long long getSequentialSearchTimeForNElements(int N)
 
 
 	return (end - start).count(); 
+}
+
+bool recursiveBinarySearch(vector<int> SORTEDnums, int targetNumber, int startIndex, int endIndex, int& counter)
+{
+	assert(std::is_sorted(SORTEDnums.begin(), SORTEDnums.end()));
+
+
+	++counter; 
+
+	if (startIndex > endIndex)
+	{
+		return false; //means `targetNumber` is not in `nums`
+	}
+	
+	int middleIndex = floor((startIndex + endIndex) / 2);
+
+	if (SORTEDnums[middleIndex] == targetNumber)
+	{
+		cout << targetNumber << " was found in the array: \n";
+		printOneDVector(SORTEDnums);
+		cout << "\nAnd the number of recursive calls ended up being = " << counter << "\n";
+
+
+		return true; 
+	}
+
+	else if (SORTEDnums[middleIndex] > targetNumber)
+	{
+		
+		recursiveBinarySearch(SORTEDnums, targetNumber, startIndex, middleIndex - 1, counter);
+
+	}
+
+	else //middle index value < targetNumber
+	{
+		recursiveBinarySearch(SORTEDnums, targetNumber, middleIndex + 1, endIndex, counter);
+	}
+
 }

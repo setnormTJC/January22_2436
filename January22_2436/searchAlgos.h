@@ -54,3 +54,5 @@ void demoWritingToACSVFile();
 void demoSequentialSearchOnNElements(const int N);
 
 long long getSequentialSearchTimeForNElements(int N);
+
+bool recursiveBinarySearch(vector<int> nums, int targetNumber, int startIndex, int endIndex, int& counter);

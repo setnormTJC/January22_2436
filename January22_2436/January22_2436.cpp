@@ -38,6 +38,29 @@ int main()
 
 	//demoSequentialSearchAlgoAnalysis(); 
 
+	//demoBinarySearch()
+
+	vector<int> binarySearchArraySizes =
+	{
+		(int)pow(2, 3),
+		(int)pow(2, 4),
+		(int)pow(2, 5),
+		(int)pow(2, 6),
+		(int)pow(2, 7),
+	};
+
+	vector<int> oneThroughTen;
+	for (int i = 0; i < 10; ++i)
+	{
+		oneThroughTen.push_back(i); 
+	}
+
+	//oneThroughTen.at(1) = 123333; //{0, 1234444, 2, 3, 4, 5}
+
+	cout << std::boolalpha; 
+	int recursiveCallCount = 0; 
+	int targetValue = 4; 
+	cout << recursiveBinarySearch(oneThroughTen, targetValue , 0, oneThroughTen.size() - 1, recursiveCallCount);
 
 
 }
