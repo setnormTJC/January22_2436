@@ -1,16 +1,16 @@
 #pragma once
 
-#include <iostream>
-
 #include<array> //static array 
-
+#include<chrono>
+#include<fstream>
+#include <iostream>
 
 #include"random"
 
 
 using std::mt19937; //this is a prime number and MT means "Mersenne Twister" 
 using std::uniform_int_distribution;
-
+using std::ofstream;
 
 
 using std::array, std::cout, std::string, std::pair, std::vector;
@@ -22,13 +22,6 @@ void printOneDVector(const vector<int>& oneDVector);
 
 array<array<string, 4>, 4> initializeMyRoomContents(); //function declaration here (def. will be in the cpp file)
 
-//template<typename T1, typename T2> //an alternative to std::pair
-//struct myPair
-//{
-//	T1 first; 
-//	T2 second; 
-//
-//};
 
 /*template<typename T>*/ 
 void print2DArray(array<array<string, 4>, 4> twoDArray);
@@ -53,3 +46,11 @@ bool sequentialSearch(const vector<T>& list, T valueToSearchFor)
 	//not found: 
 	return false; 
 }
+
+void demoMeasuringExecutionTime();
+
+void demoWritingToACSVFile();
+
+void demoSequentialSearchOnNElements(const int N);
+
+long long getSequentialSearchTimeForNElements(int N);
